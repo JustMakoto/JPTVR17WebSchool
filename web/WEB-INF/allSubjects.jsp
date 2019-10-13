@@ -14,20 +14,11 @@
     </head>
     <body>
         <h1>Предметы</h1>
-        <table style="text-align: center;">
-            <th>ID</th>
-            <th>Hours</th>
-            <th>Name</th>
-            <th>Control</th>
+ 
         <c:forEach var="subject" items="${listSubjects}">
-        <tr>
-            <td>${subject.id}</td>
-            <td>${subject.hours}</td>
-            <td><a href="SubjectGrades?id=${subject.id}">${subject.name}</a></td>
-            <td><a href="editSubject?id=${subject.id}">Edit</a></td>
-        </tr>   
+            ${subject.name}<br>
+            Академ. Ч. ${subject.hours} <br>
+            <a href="editSubject?id=${subject.id}">Edit</a> <br><br><br>
        </c:forEach>
-        </table>
-        <a href='teacher'>Вернуться</a>
     </body>
 </html>

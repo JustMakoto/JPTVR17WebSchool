@@ -29,8 +29,6 @@ import session.SubjectFacade;
 @WebServlet(name = "SchoolServlet", urlPatterns = {
     "/SchoolServlet",
     "/newPeople",
-    "/teacher",
-    "/student",
     "/subject",
     "/newSubject",
     "/newJournal",
@@ -42,9 +40,7 @@ import session.SubjectFacade;
     "/changeJournal",
     "/changePerson",
     "/editGrade",
-    "/editPerson",
-    "/SubjectGrades",
-    "/StudentGrades"
+    "/editPerson"
     //"/",
 })
 public class SchoolServlet extends HttpServlet {
@@ -59,8 +55,8 @@ public class SchoolServlet extends HttpServlet {
         switch (path) {
             
             case "/newPeople":
-                if(request.getParameter("role") != null & request.getParameter("peopleName") != null){
-                    String name = request.getParameter("peopleName");
+                if(request.getParameter("role") != null & request.getParameter("name") != null){
+                    String name = request.getParameter("name");
                     Integer role = Integer.parseInt(request.getParameter("role"));
                     People people = new People(role, name);
                     peopleFacade.create(people);
@@ -68,28 +64,15 @@ public class SchoolServlet extends HttpServlet {
                 }
                 request.getRequestDispatcher("/WEB-INF/newPeople.jsp").forward(request, response);
                 break;
-                
-            case "/teacher":
-                request.getRequestDispatcher("/WEB-INF/teacher.jsp").forward(request, response);
-                break;
-                
-            case "/student":
-                request.getRequestDispatcher("/WEB-INF/student.jsp").forward(request, response);
-                break;
+               
                 
             case "/newSubject":
                 Integer hours = 0;
                 String subjectName = request.getParameter("subjectName");
                 
                  if (request.getParameter("subjectHours") != null) {
-                    try
-                    {
                         hours = Integer.parseInt(request.getParameter("subjectHours"));
-                    }
-                    catch (NumberFormatException nfe)
-                    {
-                        hours = 1;
-                    }
+
                 }
                 Subject subject = new Subject(subjectName, hours);
                 request.setAttribute("subject", subject);
@@ -127,12 +110,12 @@ public class SchoolServlet extends HttpServlet {
                     String teacherid = request.getParameter("teacher");
                     String studentid = request.getParameter("student");
                     String subjectid = request.getParameter("subject");
-                    System.out.println("Parametres: gid:" + gradeid + " tid:" + teacherid + " studid:" + studentid + " subid:" + subjectid);
+
                     People teacherj = peopleFacade.find(Integer.parseInt(teacherid));
                     Subject subjectj = subjectFacade.find(Integer.parseInt(subjectid));
                     People studentj = peopleFacade.find(Integer.parseInt(studentid));
                     
-                    System.out.println("Names: " + teacherj.getName() + " " + studentj.getName() + " " + subjectj.getName());
+
                     
                     Journal journal = new Journal(subjectj, studentj, gradeid, teacherj, date);
                     System.out.println(journal.toString());
@@ -180,7 +163,7 @@ public class SchoolServlet extends HttpServlet {
                 subject.setName(sname);
                 subjectFacade.edit(subject);
                 request.setAttribute("info", "Изменено.");
-                request.getRequestDispatcher("/WEB-INF/allSubjects.jsp").forward(request, response);
+                request.getRequestDispatcher("/index.jsp").forward(request, response);
                 break;
                 
             case "/editGrade":
@@ -228,7 +211,7 @@ public class SchoolServlet extends HttpServlet {
                 journal.setTeacher(peopleFacade.find(Integer.parseInt(jteacher)));
                 journal.setSubject(subjectFacade.find(Integer.parseInt(jsubject))   );
                 journalFacade.edit(journal);
-                request.getRequestDispatcher("/WEB-INF/allGrades.jsp").forward(request, response);
+                request.getRequestDispatcher("/index.jsp").forward(request, response);
                 break;
                 
                 
@@ -247,34 +230,10 @@ public class SchoolServlet extends HttpServlet {
                 person.setName(name);
                 person.setRole(Integer.parseInt(role));
                 peopleFacade.edit(person);
-                request.getRequestDispatcher("/WEB-INF/allPeople.jsp").forward(request, response);
+                request.getRequestDispatcher("/index.jsp").forward(request, response);
                 break;
                 
-            case "/SubjectGrades":
-                String subjid = request.getParameter("id");
-                Subject sbj = subjectFacade.find(Integer.parseInt(subjid));
-                listJournals = new ArrayList<Journal>();
-                for(Journal i : journalFacade.findAll()){
-                    if(i.getSubject().equals(sbj)){
-                        listJournals.add(i);
-                    }
-                }
-                request.setAttribute("listJournals", listJournals);
-                request.getRequestDispatcher("/WEB-INF/SubjectGrades.jsp").forward(request, response);
-                break;
-                
-            case "/StudentGrades":
-                String stdid = request.getParameter("id");
-                People std = peopleFacade.find(Integer.parseInt(stdid));
-                listJournals = new ArrayList<Journal>();
-                for(Journal i : journalFacade.findAll()){
-                    if(i.getStudent().equals(std)){
-                        listJournals.add(i);
-                    }
-                }
-                request.setAttribute("listJournals", listJournals);
-                request.getRequestDispatcher("/WEB-INF/StudentGrades.jsp").forward(request, response);
-                break;
+
         }
     }
 

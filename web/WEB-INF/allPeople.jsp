@@ -13,27 +13,13 @@
     </head>
     <body>
         <h1>Пользователи</h1>
-        <table style="text-align: center;">
-            <th>ID</th>
-            <th>Hours</th>
-            <th>Name</th>
-            <th>Role</th>
-            <th>Control</th>
+
         <c:forEach var="subject" items="${listPeople}">
-        <tr>
-            <td>${subject.id}</td>
-            <c:if test="${subject.role == 0}">
-                <td><a href='StudentGrades?id=${subject.id}'>${subject.name}</a></td>
-            </c:if>
-            <c:if test="${subject.role == 1}">
-                <td>${subject.name}</td>
-            </c:if>
-            <td>${subject.name}</td>
-            <td>${subject.role}</td>
-            <td><a href="editPerson?id=${subject.id}">Edit</a></td>
-        </tr>   
+            ${subject.name}
+            ${subject.role}<br>
+            <a href="editPerson?id=${subject.id}">Edit</a><br><br><br>
+ 
        </c:forEach>
-        </table>
-        <a href='teacher'>Вернуться</a>
+
     </body>
 </html>

@@ -15,10 +15,9 @@
         <h1>Edit Person</h1>
         <form action="changePerson" method="POST">
             <input type="hidden" name="id" value="${person.id}">
-            Имя: <input type="text" name="name" value="${person.name}"><br>
-            Роль: <input type="number" name="role" min="0" max="1" value="${person.role}"><br>
-            <input type="submit" value="Save">
+            Имя: <input type="text" name="name" value="${person.name}"><br><br>
+            Роль: <input type="number" name="role" min="0" max="1" value="${person.role}"><br><br>
+            <input type="submit" value="Сохранить">
         </form>
-            <a href='allPeople'>Вернуться</a>
     </body>
 </html>

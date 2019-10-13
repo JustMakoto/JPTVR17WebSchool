@@ -30,16 +30,17 @@
             </c:forEach>
         </select><br><br>
         
-        Выберите оценку: 
-        <input type="radio" name="grade" value="!" required>!
-        <input type="radio" name="grade" value="1">1
-        <input type="radio" name="grade" value="2">2
-        <input type="radio" name="grade" value="3">3
-        <input type="radio" name="grade" value="4">4
-        <input type="radio" name="grade" value="5">5
-        <br><br>
+        Выберите оценку:
+        <select name="grade">
+            <option value="!" required>!</option>
+        <option  value="1">1</option>
+        <option  value="2">2</option>
+        <option  value="3">3</option>
+        <option  value="4">4</option>
+        <option value="5">5</option>
+        </select>
+        <br>
         <input type="submit" vlaue="Поставить оценку">
     </form>
-    <a href='teacher'>Вернуться</a>
     </body>
 </html>

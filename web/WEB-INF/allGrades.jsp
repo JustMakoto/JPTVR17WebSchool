@@ -14,26 +14,17 @@
     </head>
     <body>
         <h1>Оценки</h1>
-        <table style='text-align: center;'>
-            <th>ID</th>
-            <th>Date</th>
-            <th>Grade</th>
-            <th>Student ID</th>
-            <th>Subject ID</th>
-            <th>Teacher ID</th>
-            <th>Control</th>
+
+
             <c:forEach var="journal" items="${listJournals}">
-                <tr>
-                    <td>${journal.id}</td>
-                    <td>${journal.date}</td>
-                    <td>${journal.grade}</td>
-                    <td>${journal.student.name}</td>
-                    <td>${journal.subject.name}</td>
-                    <td>${journal.teacher.name}</td>
-                    <td><a href="editGrade?id=${journal.id}">Edit</a></td>
-                </tr>   
+                
+                Дата: ${journal.date}<br>
+                    Оценка: ${journal.grade}<br>
+                    Ученик: ${journal.student.name}<br>
+                    Предмет: ${journal.subject.name}<br>
+                    Учитель: ${journal.teacher.name}<br>
+                    <a href="editGrade?id=${journal.id}">Edit</a><br><br><br>
+                  
            </c:forEach>
-        </table>
-        <a href='teacher'>Вернуться</a>
     </body>
 </html>

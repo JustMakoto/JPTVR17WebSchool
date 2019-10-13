@@ -16,9 +16,8 @@
         <form action="changeSubject" method="POST">
             <input type="hidden" name="id" value="${subject.id}">
             Название: <input type="text" name="name" value="${subject.name}"><br>
-            Часы: <input type="text" name="hours" value="${subject.hours}"><br>
+            Часы: <input type="number" name="hours" value="${subject.hours}"><br>
             <input type="submit" value="Save">
         </form>
-            <a href='allSubjects'>Вернуться</a>
     </body>
 </html>

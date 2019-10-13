@@ -17,13 +17,16 @@
         <form action="changeJournal" method="POST">
             <input type="hidden" name="id" value="${journal.id}">
             <input type="hidden" name="date" value="${journal.date}">
-            Выберите оценку: 
-                <input type="radio" name="grade" value="!" required>!
-                <input type="radio" name="grade" value="1">1
-                <input type="radio" name="grade" value="2">2
-                <input type="radio" name="grade" value="3">3
-                <input type="radio" name="grade" value="4">4
-                <input type="radio" name="grade" value="5">5<br>
+            Выберите оценку:
+        <select name="grade">
+            <option value="!" required>!</option>
+        <option  value="1">1</option>
+        <option  value="2">2</option>
+        <option  value="3">3</option>
+        <option  value="4">4</option>
+        <option value="5">5</option>
+        </select>
+        <br><br>
                 Выберите ученика: 
         <select name="student">
             <c:forEach var="student" items="${listStudents}">
@@ -44,8 +47,7 @@
                     <option value="${subject.id}">${subject.name}</option>
             </c:forEach>
         </select><br><br>
-        <input type="submit" value="save">
+        <input type="submit" value="Сохранить">
         </form>
-            <a href='allGrades'>Вернуться</a>
     </body>
 </html>

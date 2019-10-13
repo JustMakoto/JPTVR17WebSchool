@@ -15,10 +15,9 @@
         <h1>Создание предмета</h1>
         <form action="newSubject" method="POST">
             Название: <input type="text" name="subjectName"><br>
-            Количество часов: <input type="number" name="subjectHours" min="1" max="9999"><br><br>
+            Количество часов: <input type="number" name="subjectHours" min="1" max="9999"><br>
             <input type="submit" value="Создать">
         </form>
-        <h2>Создан предмет: ${subject.name}, ${subject.hours} ч.</h2>
-        <a href='teacher'>Вернуться</a>
+        Создан предмет: ${subject.name} ${subject.hours} Академ ч.
     </body>
 </html>
