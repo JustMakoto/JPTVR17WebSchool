@@ -13,6 +13,8 @@
     </head>
     <body>
         <h1>Edit Person</h1>
+        <p>1 - Учитель</p>
+        <p>0 - Ученик</p>
         <form action="changePerson" method="POST">
             <input type="hidden" name="id" value="${person.id}">
             Имя: <input type="text" name="name" value="${person.name}"><br><br>

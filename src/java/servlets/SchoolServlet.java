@@ -142,10 +142,11 @@ public class SchoolServlet extends HttpServlet {
                 break;
                 
             case "/allSubjects":
-                List<Subject> listSubjects2 = subjectFacade.findAll();
-                request.setAttribute("listSubjects", listSubjects2);
+                if("subjectName" != null){
+                listSubjects = subjectFacade.findAll();
+                request.setAttribute("listSubjects", listSubjects);
                 request.getRequestDispatcher("/WEB-INF/allSubjects.jsp").forward(request, response);
-                break;
+                break;}
                 
             case "/editSubject":
                 String subjectID = request.getParameter("id");

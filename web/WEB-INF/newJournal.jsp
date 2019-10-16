@@ -26,7 +26,9 @@
         Выберите предмет:
         <select name="subject">
             <c:forEach var="subject" items="${listSubjects}">
+                <c:if test="${subject.name != null}">
                     <option value="${subject.id}">${subject.name}</option>
+                   </c:if>
             </c:forEach>
         </select><br><br>
         

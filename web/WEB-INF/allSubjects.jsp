@@ -16,9 +16,11 @@
         <h1>Предметы</h1>
  
         <c:forEach var="subject" items="${listSubjects}">
+            <c:if test="${subject.name != null}">
             ${subject.name}<br>
             Академ. Ч. ${subject.hours} <br>
             <a href="editSubject?id=${subject.id}">Edit</a> <br><br><br>
+            </c:if>
        </c:forEach>
     </body>
 </html>

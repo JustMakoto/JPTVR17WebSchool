@@ -14,12 +14,14 @@
             Имя: <input type="text" name="name"><br><br>
             Роль:
             <select name="role">
-                <option value="1"> Teacher</option><br>
-            <option  value="0"> Student</option><br><br>
+                <option value="1"> Учитель</option><br>
+            <option  value="0"> Ученик</option><br><br>
             </select>
             <input type="submit" value="Подтвердить">
         </form>
         Создан пользователь: ${people.name} 
+        <c:if test="${people.role == 1}">Учитель</c:if>
+        <c:if test="${people.role == 0}">Ученик</c:if>
 
         
     </body>

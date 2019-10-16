@@ -16,7 +16,8 @@
 
         <c:forEach var="subject" items="${listPeople}">
             ${subject.name}
-            ${subject.role}<br>
+                    <c:if test="${subject.role == 1}">Учитель</c:if>
+        <c:if test="${subject.role == 0}">Ученик</c:if><br>
             <a href="editPerson?id=${subject.id}">Edit</a><br><br><br>
  
        </c:forEach>
