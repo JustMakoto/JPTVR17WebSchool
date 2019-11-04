@@ -1,5 +1,10 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%-- 
+    Document   : StudentGrades
+    Created on : Oct 7, 2019, 9:07:09 PM
+    Author     : User
+--%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -8,18 +13,19 @@
     </head>
     <body>
         <h1>Оценки</h1>
-        <table style='text-align: center;'>
+
+
             <c:forEach var="journal" items="${listJournals}">
-                
-                
-                    Дата оценки: ${journal.date}<br>
+                Дата оценки: ${journal.date}<br>
                     Оценка: ${journal.grade}<br>
                     Имя ученика: ${journal.student.name}<br>
                     Название предмета: ${journal.subject.name}<br>
-                    Имя учителя: ${journal.teacher.name}<br>
-                    <a href="editGrade?id=${journal.id}">Edit</a><br><br><br>
-                   
+                    Имя учителя: ${journal.teacher.name}<br><br>
+                    
+                    <c:if test="${yourrole == 1}">
+                        <a href="editGrade?id=${journal.id}">Edit</a><br><br>
+                    </c:if>
            </c:forEach>
-        </table>
+
     </body>
 </html>
