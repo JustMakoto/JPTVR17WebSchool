@@ -32,8 +32,11 @@
                         </c:if>
                             
                          <c:if test="${subject.role == 2}">
-                            Имя пользователя: ${subject.name}<br>
-                            Роль: Админ<br><br>
+                            <p>Имя пользователя: ${subject.name}<br>
+                            Роль: Админ<br>
+                            <c:if test="${yourrole == 2}">
+                        <a href="editPerson?id=${subject.id}">Edit</a></p><br><br>
+                    </c:if>
                         </c:if> 
 
 

@@ -13,12 +13,15 @@
     </head>
     <body>
         <h1>Edit Person</h1>
-        <p>1 - Учитель</p>
-        <p>0 - Ученик</p>
         <form action="changePerson" method="POST">
             <input type="hidden" name="id" value="${person.id}">
             Имя: <input type="text" name="name" value="${person.name}"><br><br>
-            Роль: <input type="number" name="role" min="0" max="1" value="${person.role}"><br><br>
+            Роль:<select name="role">
+
+                <option value="0">Ученик</option>
+                <option value="1">Учитель</option>
+                <option value="2">Админ</option>
+            </select>
             <input type="submit" value="Сохранить">
         </form>
     </body>

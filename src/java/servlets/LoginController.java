@@ -113,7 +113,7 @@ public class LoginController extends HttpServlet {
                             peopleFacade.remove(people);
                             throw new Exception(e);
                         }
-                        request.setAttribute("info", "Читатель "
+                        request.setAttribute("info", "Пользователь "
                                 + people.getName()
                                 + " добавлен."
                         );

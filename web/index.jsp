@@ -4,10 +4,10 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Школа</title>
+        <title>Веб Школа</title>
     </head>
     <body>
-        <h1>Школа</h1>
+        <h1>Веб Школа</h1>
         ${info}
         <c:set var="usercheck" value="${user.login}"></c:set>
 
